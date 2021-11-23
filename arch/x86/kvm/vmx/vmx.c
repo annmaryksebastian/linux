@@ -66,8 +66,19 @@
 #include "vmx.h"
 #include "x86.h"
 
+#include <asm/atomic.h>
+#include <asm/atomic64_64.h>
+#include <asm/msr.h>
+
+
+
+
 MODULE_AUTHOR("Qumranet");
 MODULE_LICENSE("GPL");
+
+
+extern atomic_t cnt_exit;
+extern atomic64_t time_spent_exiting;
 
 #ifdef MODULE
 static const struct x86_cpu_id vmx_cpu_id[] = {
@@ -170,6 +181,8 @@ static u32 vmx_possible_passthrough_msrs[MAX_POSSIBLE_PASSTHROUGH_MSRS] = {
 	MSR_CORE_C6_RESIDENCY,
 	MSR_CORE_C7_RESIDENCY,
 };
+
+u32 total_exits;
 
 /*
  * These 2 parameters are used to config the controls for Pause-Loop Exiting:
@@ -5862,13 +5875,21 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
  * The guest has exited.  See if we can fix it or if we need userspace
  * assistance.
  */
+ 
+ 
 static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 {
+	uint64_t start = rdtsc();
 	struct vcpu_vmx *vmx = to_vmx(vcpu);
 	union vmx_exit_reason exit_reason = vmx->exit_reason;
 	u32 vectoring_info = vmx->idt_vectoring_info;
 	u16 exit_handler_index;
-
+	uint64_t end;
+	
+	atomic_inc(&cnt_exit);
+	
+	//total_exits++;
+	
 	/*
 	 * Flush logged GPAs PML buffer, this will make dirty_bitmap more
 	 * updated. Another good is, in kvm_vm_ioctl_get_dirty_log, before
@@ -6008,6 +6029,10 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 						kvm_vmx_max_exit_handlers);
 	if (!kvm_vmx_exit_handlers[exit_handler_index])
 		goto unexpected_vmexit;
+		
+	end = rdtsc();
+	
+	atomic64_fetch_add(end-start, &time_spent_exiting);
 
 	return kvm_vmx_exit_handlers[exit_handler_index](vcpu);
 
@@ -6021,6 +6046,8 @@ unexpected_vmexit:
 	vcpu->run->internal.ndata = 2;
 	vcpu->run->internal.data[0] = exit_reason.full;
 	vcpu->run->internal.data[1] = vcpu->arch.last_vmentry_cpu;
+	
+	
 	return 0;
 }
 
