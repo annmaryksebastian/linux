@@ -33,6 +33,8 @@ After this I installed the virtual machine manager and started ubuntu20.04 OS in
 ![image](https://user-images.githubusercontent.com/78461249/142982791-3bd8a30c-0b99-4392-ace0-b2704e7b2e41.png)
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # CMPE 283 Assignment-3
 ## Completed by two members:
@@ -70,6 +72,38 @@ Made Code changes into the cpuid.c file and vmx.c file for the EAX value 0x4FFFF
 8. lsmod | grep kvm
 9.Then started the inner vm virtual machine and ran the test file to check the output.
 
+## Answers for 3 and 4
+<pre>
+3:
+Exit counts greater than 0 were observed for exit codes: 0, 10, 28, 29, 30, 31, 40, 46, 47, 48, 54 and 55.
+For exit codes 28, 29, 46, 47, 54 and 55 the count increased at a stable rate only during reboot operation.
+For the remaining exit codes the counts increased to higher value during reboot operation, whereas it increased
+with a lower value for normal operations such as file creation and deletion etc. From the output pattern mentioned below,
+it was observed that, there were nearly 1.5 million exits during a reboot operation
+
+4:
+Most frequent exit types are: 0, 10, 30, 31, 40, 48 and 28.
+Least frequent exit types are: 29, 46, 47, 54, and 55. 
+</pre>
+
+## Output Pattern Observed for different exit types:
+<pre>
+Exit Type       FIRST_Start,     Reboot,       Create File,     Delete File,     Reboot
+
+1. 0:             16126,         32979,           32990,         32994,         49797
+2. 10:            140278,       280327,          284362,        285115,        423010
+3. 28:            31931,         64163,           64163,         64163,         95909
+4. 29:               2,              4,               4,             4,            6
+5. 30:            200658,       407978,          420884,        433471,        637408
+6. 31:              934,          2947,           4840,         6073,          8016
+7. 40:             1818,          3701,           11692,        12573,         14373
+8. 46:               7,             14,             14,          14,             21
+9. 47:               3,              6,              6,           6,              9
+10. 48:             1033570,     200451,          2313123,     2346078,       3526212
+11. 54:                3,             6,               6,          6,             9
+12. 55:                3,             6,               6,          6,             9
+</pre>
+
 ## Output Screenshots
 
 ![image](https://user-images.githubusercontent.com/78461249/143988917-13fdf416-83f5-4486-aa57-5a5c0308c971.png)
@@ -91,3 +125,5 @@ Made Code changes into the cpuid.c file and vmx.c file for the EAX value 0x4FFFF
 ![image](https://user-images.githubusercontent.com/78461249/143989091-6cfebb4a-f68a-42ef-acc9-fec83bbc8f05.png)
 
 ![image](https://user-images.githubusercontent.com/78461249/143989116-92e91766-e8c4-44a1-91a5-e7cd8e04d372.png)
+
+</pre>
