@@ -76,9 +76,136 @@
 MODULE_AUTHOR("Qumranet");
 MODULE_LICENSE("GPL");
 
-
+/* Assignment-2 Changes */
 extern atomic_t cnt_exit;
 extern atomic64_t time_spent_exiting;
+
+/* Assignment-3 Changes */
+
+extern atomic_t VMX_EXIT_REASON_EXCEPTION_NMI;
+extern atomic_t VMX_EXIT_REASON_EXTERNAL_INTERRUPT;
+extern atomic_t VMX_EXIT_REASON_TRIPLE_FAULT;     
+extern atomic_t VMX_EXIT_REASON_INIT_SIGNAL;	  
+extern atomic_t VMX_EXIT_REASON_SIPI_SIGNAL;      
+extern atomic_t VMX_EXIT_REASON_INTERRUPT_WINDOW; 
+extern atomic_t VMX_EXIT_REASON_NMI_WINDOW;       
+extern atomic_t VMX_EXIT_REASON_TASK_SWITCH;      
+extern atomic_t VMX_EXIT_REASON_CPUID;            
+extern atomic_t VMX_EXIT_REASON_HLT;              
+extern atomic_t VMX_EXIT_REASON_INVD;             
+extern atomic_t VMX_EXIT_REASON_INVLPG;           
+extern atomic_t VMX_EXIT_REASON_RDPMC;            
+extern atomic_t VMX_EXIT_REASON_RDTSC;            
+extern atomic_t VMX_EXIT_REASON_VMCALL;           
+extern atomic_t VMX_EXIT_REASON_VMCLEAR;          
+extern atomic_t VMX_EXIT_REASON_VMLAUNCH;         
+extern atomic_t VMX_EXIT_REASON_VMPTRLD;          
+extern atomic_t VMX_EXIT_REASON_VMPTRST;          
+extern atomic_t VMX_EXIT_REASON_VMREAD;           
+extern atomic_t VMX_EXIT_REASON_VMRESUME;         
+extern atomic_t VMX_EXIT_REASON_VMWRITE;          
+extern atomic_t VMX_EXIT_REASON_VMOFF;            
+extern atomic_t VMX_EXIT_REASON_VMON;             
+extern atomic_t VMX_EXIT_REASON_CR_ACCESS;        
+extern atomic_t VMX_EXIT_REASON_DR_ACCESS;        
+extern atomic_t VMX_EXIT_REASON_IO_INSTRUCTION;   
+extern atomic_t VMX_EXIT_REASON_MSR_READ;         
+extern atomic_t VMX_EXIT_REASON_MSR_WRITE;        
+extern atomic_t VMX_EXIT_REASON_INVALID_STATE;    
+extern atomic_t VMX_EXIT_REASON_MSR_LOAD_FAIL;    
+extern atomic_t VMX_EXIT_REASON_MWAIT_INSTRUCTION;
+extern atomic_t VMX_EXIT_REASON_MONITOR_TRAP_FLAG;
+extern atomic_t VMX_EXIT_REASON_MONITOR_INSTRUCTION;
+extern atomic_t VMX_EXIT_REASON_PAUSE_INSTRUCTION;
+extern atomic_t VMX_EXIT_REASON_MCE_DURING_VMENTRY;
+extern atomic_t VMX_EXIT_REASON_TPR_BELOW_THRESHOLD;
+extern atomic_t VMX_EXIT_REASON_APIC_ACCESS;
+extern atomic_t VMX_EXIT_REASON_EOI_INDUCED;      
+extern atomic_t VMX_EXIT_REASON_GDTR_IDTR;        
+extern atomic_t VMX_EXIT_REASON_LDTR_TR;          
+extern atomic_t VMX_EXIT_REASON_EPT_VIOLATION;    
+extern atomic_t VMX_EXIT_REASON_EPT_MISCONFIG;    
+extern atomic_t VMX_EXIT_REASON_INVEPT;           
+extern atomic_t VMX_EXIT_REASON_RDTSCP;           
+extern atomic_t VMX_EXIT_REASON_PREEMPTION_TIMER; 
+extern atomic_t VMX_EXIT_REASON_INVVPID;          
+extern atomic_t VMX_EXIT_REASON_WBINVD;           
+extern atomic_t VMX_EXIT_REASON_XSETBV;           
+extern atomic_t VMX_EXIT_REASON_APIC_WRITE;       
+extern atomic_t VMX_EXIT_REASON_RDRAND;           
+extern atomic_t VMX_EXIT_REASON_INVPCID;          
+extern atomic_t VMX_EXIT_REASON_VMFUNC;           
+extern atomic_t VMX_EXIT_REASON_ENCLS;            
+extern atomic_t VMX_EXIT_REASON_RDSEED;           
+extern atomic_t VMX_EXIT_REASON_PML_FULL;         
+extern atomic_t VMX_EXIT_REASON_XSAVES;           
+extern atomic_t VMX_EXIT_REASON_XRSTORS;          
+extern atomic_t VMX_EXIT_REASON_UMWAIT;           
+extern atomic_t VMX_EXIT_REASON_TPAUSE;
+
+
+extern atomic64_t VMX_EXIT_TIMER_REASON_EXCEPTION_NMI;
+extern atomic64_t VMX_EXIT_TIMER_REASON_EXTERNAL_INTERRUPT; 
+extern atomic64_t VMX_EXIT_TIMER_REASON_TRIPLE_FAULT;
+extern atomic64_t VMX_EXIT_TIMER_REASON_INIT_SIGNAL;
+extern atomic64_t VMX_EXIT_TIMER_REASON_SIPI_SIGNAL;
+extern atomic64_t VMX_EXIT_TIMER_REASON_INTERRUPT_WINDOW; 
+extern atomic64_t VMX_EXIT_TIMER_REASON_NMI_WINDOW;      
+extern atomic64_t VMX_EXIT_TIMER_REASON_TASK_SWITCH;     
+extern atomic64_t VMX_EXIT_TIMER_REASON_CPUID;
+extern atomic64_t VMX_EXIT_TIMER_REASON_HLT;              
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVD;             
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVLPG;         
+extern atomic64_t VMX_EXIT_TIMER_REASON_RDPMC;         
+extern atomic64_t VMX_EXIT_TIMER_REASON_RDTSC;          
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMCALL;        
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMCLEAR;     
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMLAUNCH;   
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMPTRLD;      
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMPTRST;     
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMREAD;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMRESUME;  
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMWRITE;      
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMOFF;          
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMON;           
+extern atomic64_t VMX_EXIT_TIMER_REASON_CR_ACCESS;        
+extern atomic64_t VMX_EXIT_TIMER_REASON_DR_ACCESS;        
+extern atomic64_t VMX_EXIT_TIMER_REASON_IO_INSTRUCTION; 
+extern atomic64_t VMX_EXIT_TIMER_REASON_MSR_READ;         
+extern atomic64_t VMX_EXIT_TIMER_REASON_MSR_WRITE;        
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVALID_STATE;   
+extern atomic64_t VMX_EXIT_TIMER_REASON_MSR_LOAD_FAIL; 
+extern atomic64_t VMX_EXIT_TIMER_REASON_MWAIT_INSTRUCTION;
+extern atomic64_t VMX_EXIT_TIMER_REASON_MONITOR_TRAP_FLAG;
+extern atomic64_t VMX_EXIT_TIMER_REASON_MONITOR_INSTRUCTION;
+extern atomic64_t VMX_EXIT_TIMER_REASON_PAUSE_INSTRUCTION;
+extern atomic64_t VMX_EXIT_TIMER_REASON_MCE_DURING_VMENTRY;
+extern atomic64_t VMX_EXIT_TIMER_REASON_TPR_BELOW_THRESHOLD;
+extern atomic64_t VMX_EXIT_TIMER_REASON_APIC_ACCESS;
+extern atomic64_t VMX_EXIT_TIMER_REASON_EOI_INDUCED;
+extern atomic64_t VMX_EXIT_TIMER_REASON_GDTR_IDTR;        
+extern atomic64_t VMX_EXIT_TIMER_REASON_LDTR_TR;
+extern atomic64_t VMX_EXIT_TIMER_REASON_EPT_VIOLATION;
+extern atomic64_t VMX_EXIT_TIMER_REASON_EPT_MISCONFIG;
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVEPT;
+extern atomic64_t VMX_EXIT_TIMER_REASON_RDTSCP;
+extern atomic64_t VMX_EXIT_TIMER_REASON_PREEMPTION_TIMER;
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVVPID;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_WBINVD;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_XSETBV;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_APIC_WRITE;
+extern atomic64_t VMX_EXIT_TIMER_REASON_RDRAND;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_INVPCID;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_VMFUNC;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_ENCLS;          
+extern atomic64_t VMX_EXIT_TIMER_REASON_RDSEED;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_PML_FULL;    
+extern atomic64_t VMX_EXIT_TIMER_REASON_XSAVES;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_XRSTORS;     
+extern atomic64_t VMX_EXIT_TIMER_REASON_UMWAIT;       
+extern atomic64_t VMX_EXIT_TIMER_REASON_TPAUSE;
+
+
 
 #ifdef MODULE
 static const struct x86_cpu_id vmx_cpu_id[] = {
@@ -5888,7 +6015,6 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 	
 	atomic_inc(&cnt_exit);
 	
-	//total_exits++;
 	
 	/*
 	 * Flush logged GPAs PML buffer, this will make dirty_bitmap more
@@ -6029,10 +6155,258 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 						kvm_vmx_max_exit_handlers);
 	if (!kvm_vmx_exit_handlers[exit_handler_index])
 		goto unexpected_vmexit;
-		
 	end = rdtsc();
-	
+
 	atomic64_fetch_add(end-start, &time_spent_exiting);
+	
+	/* Assignment-3 Changes */
+	switch(exit_reason.basic)
+	{
+	
+		case EXIT_REASON_EXCEPTION_NMI:
+			atomic_inc(&VMX_EXIT_REASON_EXCEPTION_NMI);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_EXCEPTION_NMI);
+			break;
+		case EXIT_REASON_EXTERNAL_INTERRUPT:
+			atomic_inc(&VMX_EXIT_REASON_EXTERNAL_INTERRUPT);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_EXTERNAL_INTERRUPT);
+			break;
+		case EXIT_REASON_TRIPLE_FAULT:
+			atomic_inc(&VMX_EXIT_REASON_TRIPLE_FAULT);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_TRIPLE_FAULT);
+			break;    
+		case EXIT_REASON_INIT_SIGNAL:
+			atomic_inc(&VMX_EXIT_REASON_INIT_SIGNAL);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INIT_SIGNAL);
+			break;		
+		case EXIT_REASON_SIPI_SIGNAL:
+			atomic_inc(&VMX_EXIT_REASON_SIPI_SIGNAL);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_SIPI_SIGNAL);
+			break;     
+		case EXIT_REASON_INTERRUPT_WINDOW:
+			atomic_inc(&VMX_EXIT_REASON_INTERRUPT_WINDOW);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INTERRUPT_WINDOW);
+			break;
+		case EXIT_REASON_NMI_WINDOW:
+			atomic_inc(&VMX_EXIT_REASON_NMI_WINDOW);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_NMI_WINDOW);
+			break;      
+		case EXIT_REASON_TASK_SWITCH:
+			atomic_inc(&VMX_EXIT_REASON_TASK_SWITCH);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_TASK_SWITCH);
+			break;     
+		case EXIT_REASON_CPUID:
+			atomic_inc(&VMX_EXIT_REASON_CPUID);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_CPUID);
+			break;           
+		case EXIT_REASON_HLT:
+			atomic_inc(&VMX_EXIT_REASON_HLT);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_HLT);
+			break;             
+		case EXIT_REASON_INVD:
+			atomic_inc(&VMX_EXIT_REASON_INVD);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVD);
+			break;            
+		case EXIT_REASON_INVLPG:
+			atomic_inc(&VMX_EXIT_REASON_INVLPG);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVLPG);
+			break;          
+		case EXIT_REASON_RDPMC:
+			atomic_inc(&VMX_EXIT_REASON_RDPMC);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_RDPMC);
+			break;           
+		case EXIT_REASON_RDTSC:
+			atomic_inc(&VMX_EXIT_REASON_RDTSC);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_RDTSC);
+			break;           
+		case EXIT_REASON_VMCALL:
+			atomic_inc(&VMX_EXIT_REASON_VMCALL);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMCALL);
+			break;          
+		case EXIT_REASON_VMCLEAR:
+			atomic_inc(&VMX_EXIT_REASON_VMCLEAR);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMCLEAR);
+			break;         
+		case EXIT_REASON_VMLAUNCH:
+			atomic_inc(&VMX_EXIT_REASON_VMLAUNCH);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMLAUNCH);
+			break;        
+		case EXIT_REASON_VMPTRLD:
+			atomic_inc(&VMX_EXIT_REASON_VMPTRLD);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMPTRLD);
+			break;         
+		case EXIT_REASON_VMPTRST:
+			atomic_inc(&VMX_EXIT_REASON_VMPTRST);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMPTRST);
+			break;         
+		case EXIT_REASON_VMREAD:
+			atomic_inc(&VMX_EXIT_REASON_VMREAD);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMREAD);
+			break;          
+		case EXIT_REASON_VMRESUME:
+			atomic_inc(&VMX_EXIT_REASON_VMRESUME);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMRESUME);
+			break;        
+		case EXIT_REASON_VMWRITE:
+			atomic_inc(&VMX_EXIT_REASON_VMWRITE);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMWRITE);
+			break;         
+		case EXIT_REASON_VMOFF:
+			atomic_inc(&VMX_EXIT_REASON_VMOFF);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMOFF);
+			break;           
+		case EXIT_REASON_VMON:
+			atomic_inc(&VMX_EXIT_REASON_VMON);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMON);
+			break;            
+		case EXIT_REASON_CR_ACCESS:
+			atomic_inc(&VMX_EXIT_REASON_CR_ACCESS);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_CR_ACCESS);
+			break;       
+		case EXIT_REASON_DR_ACCESS:
+			atomic_inc(&VMX_EXIT_REASON_DR_ACCESS);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_DR_ACCESS);
+			break;       
+		case EXIT_REASON_IO_INSTRUCTION:
+			atomic_inc(&VMX_EXIT_REASON_IO_INSTRUCTION);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_IO_INSTRUCTION);
+			break;  
+		case EXIT_REASON_MSR_READ:
+			atomic_inc(&VMX_EXIT_REASON_MSR_READ);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MSR_READ);
+			break;        
+		case EXIT_REASON_MSR_WRITE:
+			atomic_inc(&VMX_EXIT_REASON_MSR_WRITE);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MSR_WRITE);
+			break;       
+		case EXIT_REASON_INVALID_STATE:
+			atomic_inc(&VMX_EXIT_REASON_INVALID_STATE);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVALID_STATE);
+			break;   
+		case EXIT_REASON_MSR_LOAD_FAIL:
+			atomic_inc(&VMX_EXIT_REASON_MSR_LOAD_FAIL);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MSR_LOAD_FAIL);
+			break;   
+		case EXIT_REASON_MWAIT_INSTRUCTION:
+			atomic_inc(&VMX_EXIT_REASON_MWAIT_INSTRUCTION);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MWAIT_INSTRUCTION);
+			break;
+		case EXIT_REASON_MONITOR_TRAP_FLAG:
+			atomic_inc(&VMX_EXIT_REASON_MONITOR_TRAP_FLAG);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MONITOR_TRAP_FLAG);
+			break;
+		case EXIT_REASON_MONITOR_INSTRUCTION:
+			atomic_inc(&VMX_EXIT_REASON_MONITOR_INSTRUCTION);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MONITOR_INSTRUCTION);
+			break;
+		case EXIT_REASON_PAUSE_INSTRUCTION:
+			atomic_inc(&VMX_EXIT_REASON_PAUSE_INSTRUCTION);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_PAUSE_INSTRUCTION);
+			break;
+		case EXIT_REASON_MCE_DURING_VMENTRY:
+			atomic_inc(&VMX_EXIT_REASON_MCE_DURING_VMENTRY);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_MCE_DURING_VMENTRY);
+			break;
+		case EXIT_REASON_TPR_BELOW_THRESHOLD:
+			atomic_inc(&VMX_EXIT_REASON_TPR_BELOW_THRESHOLD);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_TPR_BELOW_THRESHOLD);
+			break;
+		case EXIT_REASON_APIC_ACCESS:
+			atomic_inc(&VMX_EXIT_REASON_APIC_ACCESS);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_APIC_ACCESS);
+			break;     
+		case EXIT_REASON_EOI_INDUCED:
+			atomic_inc(&VMX_EXIT_REASON_EOI_INDUCED);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_EOI_INDUCED);
+			break;     
+		case EXIT_REASON_GDTR_IDTR:
+			atomic_inc(&VMX_EXIT_REASON_GDTR_IDTR);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_GDTR_IDTR);
+			break;       
+		case EXIT_REASON_LDTR_TR:
+			atomic_inc(&VMX_EXIT_REASON_LDTR_TR);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_LDTR_TR);
+			break;         
+		case EXIT_REASON_EPT_VIOLATION:
+			atomic_inc(&VMX_EXIT_REASON_EPT_VIOLATION);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_EPT_VIOLATION);
+			break;   
+		case EXIT_REASON_EPT_MISCONFIG:
+			atomic_inc(&VMX_EXIT_REASON_EPT_MISCONFIG);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_EPT_MISCONFIG);
+			break;   
+		case EXIT_REASON_INVEPT:
+			atomic_inc(&VMX_EXIT_REASON_INVEPT);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVEPT);
+			break;          
+		case EXIT_REASON_RDTSCP:
+			atomic_inc(&VMX_EXIT_REASON_RDTSCP);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_RDTSCP);
+			break;          
+		case EXIT_REASON_PREEMPTION_TIMER:
+			atomic_inc(&VMX_EXIT_REASON_PREEMPTION_TIMER);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_PREEMPTION_TIMER);
+			break;
+		case EXIT_REASON_INVVPID:
+			atomic_inc(&VMX_EXIT_REASON_INVVPID);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVVPID);
+			break;         
+		case EXIT_REASON_WBINVD:
+			atomic_inc(&VMX_EXIT_REASON_WBINVD);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_WBINVD);
+			break;          
+		case EXIT_REASON_XSETBV:
+			atomic_inc(&VMX_EXIT_REASON_XSETBV);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_XSETBV);
+			break;          
+		case EXIT_REASON_APIC_WRITE:
+			atomic_inc(&VMX_EXIT_REASON_APIC_WRITE);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_APIC_WRITE);
+			break;      
+		case EXIT_REASON_RDRAND:
+			atomic_inc(&VMX_EXIT_REASON_RDRAND);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_RDRAND);
+			break;          
+		case EXIT_REASON_INVPCID:
+			atomic_inc(&VMX_EXIT_REASON_INVPCID);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_INVPCID);
+			break;         
+		case EXIT_REASON_VMFUNC:
+			atomic_inc(&VMX_EXIT_REASON_VMFUNC);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_VMFUNC);
+			break;          
+		case EXIT_REASON_ENCLS:
+			atomic_inc(&VMX_EXIT_REASON_ENCLS);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_ENCLS);
+			break;           
+		case EXIT_REASON_RDSEED:
+			atomic_inc(&VMX_EXIT_REASON_RDSEED);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_RDSEED);
+			break;          
+		case EXIT_REASON_PML_FULL:
+			atomic_inc(&VMX_EXIT_REASON_PML_FULL);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_PML_FULL);
+			break;        
+		case EXIT_REASON_XSAVES:
+			atomic_inc(&VMX_EXIT_REASON_XSAVES);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_XSAVES);
+			break;          
+		case EXIT_REASON_XRSTORS:
+			atomic_inc(&VMX_EXIT_REASON_XRSTORS);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_XRSTORS);
+			break;         
+		case EXIT_REASON_UMWAIT:
+			atomic_inc(&VMX_EXIT_REASON_UMWAIT);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_UMWAIT);
+			break;          
+		case EXIT_REASON_TPAUSE:
+			atomic_inc(&VMX_EXIT_REASON_TPAUSE);
+			atomic64_fetch_add(end-start, &VMX_EXIT_TIMER_REASON_TPAUSE);
+			break;
+		default:
+			break;
+			
+	}
 
 	return kvm_vmx_exit_handlers[exit_handler_index](vcpu);
 
@@ -6046,8 +6420,8 @@ unexpected_vmexit:
 	vcpu->run->internal.ndata = 2;
 	vcpu->run->internal.data[0] = exit_reason.full;
 	vcpu->run->internal.data[1] = vcpu->arch.last_vmentry_cpu;
-	
-	
+
+
 	return 0;
 }
 
