@@ -127,3 +127,53 @@ Exit Type       FIRST_Start,     Reboot,       Create File,     Delete File,    
 ![image](https://user-images.githubusercontent.com/78461249/143989116-92e91766-e8c4-44a1-91a5-e7cd8e04d372.png)
 
 </pre>
+
+# CMPE 283 Assignment-4
+## Completed by two members:
+### Ashwin Kumar (015273258)
+### Annmary K Sebastian (015215928)
+
+### Member Contribution
+
+#### Annmary's Contribution:
+I ran the existing Assignment 3 code for the required cpuid 0x4FFFFFFD (with nested paging enabled) and noted the exit count for each of the exit reasons and noted the total exit count using the dmesg command.
+
+#### Ashwin's Contribution:
+After Annmarrys work I shut down the inner vm. Then removed the 'kvm_intel' module using the command 'rmmod kvm_intel'. Then I loaded the kvm-intel module with ept set to 0, using the following command, 'sudo insmod /lib/modules/5.16.0-rc1+/kernel/arch/x86/kvm/kvm-intel.ko ept=0'. Then started the inner vm and executed the code to read the exit count for different exit reasons. Then used the dmesg command in the outer vm to get the total exit counts.
+
+## Output Screenshots
+
+### With Nested Paging enabled
+#### Exit count for each type of exit
+
+![2021-12-08_22h44_21](https://user-images.githubusercontent.com/78461249/145348094-2889a8f8-e67d-44dd-940f-af396820cb2b.png)  ![2021-12-08_22h48_05](https://user-images.githubusercontent.com/78461249/145348135-a6e3d47c-7931-4d6a-b08e-8e99b8b93357.png)
+
+![2021-12-08_22h50_23](https://user-images.githubusercontent.com/78461249/145348257-68764fd8-fc99-4606-abf9-fe1bd6c8f8f9.png)   ![2021-12-08_22h51_08](https://user-images.githubusercontent.com/78461249/145348278-6306eea7-b2ec-49ea-bb29-043db03fd534.png)
+
+![2021-12-08_22h51_27](https://user-images.githubusercontent.com/78461249/145348299-fc942252-1f9c-419c-a8b1-b6d9993aaab0.png)
+
+#### Total Exits
+![eptnot0](https://user-images.githubusercontent.com/78461249/145348437-681c11fd-44ed-4cec-af25-2bf480f25573.png)
+
+
+### With Nested Paging disabled
+#### Exit count for each type of exit
+
+![2021-12-08_22h57_22](https://user-images.githubusercontent.com/78461249/145349246-2e2cf386-d308-4cd6-9bcf-8a41022ff8f6.png)   ![2021-12-08_22h58_13](https://user-images.githubusercontent.com/78461249/145349268-a093ac2f-ae35-4403-9363-b65e922fbf63.png)
+
+![2021-12-08_22h59_24](https://user-images.githubusercontent.com/78461249/145349279-83110aa0-4ce1-44da-bd2d-d20fef1146e1.png)   ![2021-12-08_23h00_19](https://user-images.githubusercontent.com/78461249/145349298-86cb0522-409e-4ac6-a55c-6bfa3dbaa8db.png)
+
+![2021-12-08_23h00_31](https://user-images.githubusercontent.com/78461249/145349327-eeab9460-e5b0-448a-8a73-837676fd0992.png)
+
+#### Total Exits
+![eptis0](https://user-images.githubusercontent.com/78461249/145349391-695e115d-3ddf-4f62-81fe-ab76ee767441.png)
+
+## Answers for 3 and 4
+<pre>
+3:
+The number of exits were quite huge for shadow pagaing when compared to nested paging exits. The reason could be that the shadow paging architecture requires additional exits in order to function properly as a VMM. 
+
+4:
+The change that we observed between the two runs is that, earlier for exit reasons 14 and 58 the count was 0 for nested paging. But the count were quite large when nested paging was disabled. It can be observed from screenshots. The other difference observed was that the exit counts increased for rest of the other exit reasons as well.
+
+</pre>
